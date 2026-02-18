@@ -72,6 +72,8 @@ void printArray(float arr[], int n)
 int main()
 {
     float arr[] = {0.42, 0.32, 0.67, 0.89, 0.12, 0.55, 0.73, 0.91, 0.28, 0.64};
+
+    // 4.2 , 3.2 6.7 ,8.9
     int n = sizeof(arr) / sizeof(arr[0]);
 
     printf("Before Sorting:\n");

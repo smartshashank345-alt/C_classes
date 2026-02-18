@@ -27,6 +27,7 @@ void insertionSort(int array[], int size)
 int main()
 {
     int arr[] = {19, 6, 10, 4, 43};
+    // 4 6 10 19 43
     int size = sizeof(arr) / sizeof(arr[0]);
     printf("Sorted array in ascending order:\n");
     insertionSort(arr, size);
