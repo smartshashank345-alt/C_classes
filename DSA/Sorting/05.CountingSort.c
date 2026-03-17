@@ -30,6 +30,7 @@ void countSort(int arr[], int n)
     for (int i = n - 1; i >= 0; i--)
     {
         output[--count[arr[i]]] = arr[i];
+        // count[2] = 2
     }
 
     // Copy back to original array
@@ -53,3 +54,11 @@ int main()
 
     return 0;
 }
+
+// 0 - 2 , 1- 0 , 2- 2 , 3 -3 , 4-0 , 5-1
+
+// 2 0 2 3 0 1
+
+// count --  2 2 4 7 7 8
+
+//  0 0 2 2 3 3 3 5
