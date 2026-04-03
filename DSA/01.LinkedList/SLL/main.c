@@ -61,7 +61,7 @@ struct Node *insertAtEnd(struct Node *head, int data)
         temp = temp->next;
 
     temp->next = newNode;
-    return head;
+    return newNode;
 }
 
 // Insert at Position (0-based)
@@ -91,7 +91,7 @@ struct Node *insertAtPosition(struct Node *head, int data, int position)
     newNode->next = temp->next;
     temp->next = newNode;
 
-    return head;
+    return newNode;
 }
 
 // Delete at Beginning
