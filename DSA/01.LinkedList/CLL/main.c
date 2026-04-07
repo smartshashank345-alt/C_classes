@@ -90,3 +90,139 @@ struct Node *insertAtPosition(struct Node *head, int data, int position)
 
     return newNode;
 }
+
+// Delete at Beginning
+struct Node *deleteAtBegin(struct Node *head)
+{
+    // EMpty Linked List
+    if (head == NULL)
+    {
+        printf("List is empty\n");
+        return NULL;
+    }
+
+    // single Node
+    if (head->next == head)
+    {
+        free(head);
+        return NULL;
+    }
+
+    struct Node *temp = head;
+    struct Node *delNode = head;
+
+    while (temp->next != head)
+    {
+        temp = temp->next;
+    }
+    head = head->next;
+    temp->next = head;
+
+    free(delNode);
+
+    return head;
+}
+
+// Delete from End
+struct Node *deleteFromEnd(struct Node *head)
+{
+    if (head == NULL)
+    {
+        printf("List is empty\n");
+        return NULL;
+    }
+
+    if (head->next == NULL)
+    {
+        printf("Deleted: %d\n", head->data);
+        free(head);
+        return NULL;
+    }
+
+    struct Node *temp = head;
+    struct Node *prev = NULL;
+
+    while (temp->next != NULL)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    prev->next = head;
+    printf("Deleted: %d\n", temp->data);
+    free(temp);
+
+    return head;
+}
+
+// Delete from Position
+struct Node *deleteFromPosition(struct Node *head, int position)
+{
+    if (head == NULL)
+    {
+        printf("List is empty\n");
+        return NULL;
+    }
+
+    if (position < 0)
+    {
+        printf("Invalid position\n");
+        return head;
+    }
+
+    if (position == 0)
+        return deleteAtBegin(head);
+
+    struct Node *temp = head;
+    struct Node *prev = NULL;
+
+    for (int i = 0; i < position && temp != NULL; i++)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == NULL)
+    {
+        printf("Position out of range\n");
+        return head;
+    }
+
+    prev->next = temp->next;
+    printf("Deleted: %d\n", temp->data);
+    free(temp);
+
+    return head;
+}
+
+// Traversal
+void traversal(struct Node *head)
+{
+    struct Node *temp = head;
+
+    while (temp != head)
+    {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+
+    printf("NULL\n");
+}
+
+// Search (returns index)
+int search(struct Node *head, int value)
+{
+    struct Node *temp = head;
+    int index = 0;
+
+    while (temp != head)
+    {
+        if (temp->data == value)
+            return index;
+
+        temp = temp->next;
+        index++;
+    }
+
+    return -1;
+}
