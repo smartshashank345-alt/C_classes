@@ -44,6 +44,7 @@ struct Node *insertAtStart(struct Node *head, int data)
 {
     struct Node *newNode = createNode(data);
     newNode->next = head;
+    head = newNode;
     return newNode;
 }
 
